@@ -1,0 +1,41 @@
+﻿<div class="row">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10" ; style="background-color: white; border-radius: 35px; padding: 20px">
+
+        @using MathsDepartmentWeb.Models
+        @{
+            ViewBag.Title = "Contact";
+        }
+        <h2>Time-Slots</h2>
+        <h3></h3>
+
+        @{ if (ViewData["MyLessons"] != null)
+            {
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Subject</th>
+                    </tr>
+                    @foreach (Lesson l in (IEnumerable<Lesson>)ViewData["MyLessons"])
+                    {
+                        <tr>
+                            <td><a href="/Home/Index/@l.TeacherID">@l.Name</a></td>
+                            <td>@l.DayName</td>
+                            <td>@l.TimeslotName</td>
+                            <td>@l.Subject</td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>There are no times to display!</p>
+            }
+
+        }
+    </div>
+    <div class="col-md-1"></div>
+</div>

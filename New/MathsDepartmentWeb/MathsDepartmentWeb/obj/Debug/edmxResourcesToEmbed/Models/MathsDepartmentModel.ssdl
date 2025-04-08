@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MathsDepartmentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Day">
+    <Key>
+      <PropertyRef Name="DayID" />
+    </Key>
+    <Property Name="DayID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Day" Type="nvarchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="Lesson">
+    <Key>
+      <PropertyRef Name="LessonID" />
+    </Key>
+    <Property Name="LessonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TeacherID" Type="int" Nullable="false" />
+    <Property Name="TimeslotID" Type="int" Nullable="false" />
+    <Property Name="DayID" Type="int" Nullable="false" />
+    <Property Name="Available" Type="bit" />
+    <Property Name="SpotsTaken" Type="int" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TeacherID" />
+    </Key>
+    <Property Name="TeacherID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Forename" Type="nvarchar" MaxLength="50" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="TelNum" Type="nvarchar" MaxLength="50" />
+    <Property Name="Room" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Timeslot">
+    <Key>
+      <PropertyRef Name="TimeslotID" />
+    </Key>
+    <Property Name="TimeslotID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Timeslot" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_dbo_Lesson_dbo_Day_DayID">
+    <End Role="Day" Type="Self.Day" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Day">
+        <PropertyRef Name="DayID" />
+      </Principal>
+      <Dependent Role="Lesson">
+        <PropertyRef Name="DayID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Lesson_dbo_Teacher_TeacherID">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="TeacherID" />
+      </Principal>
+      <Dependent Role="Lesson">
+        <PropertyRef Name="TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Lesson_dbo_Timeslot_TimeslotID">
+    <End Role="Timeslot" Type="Self.Timeslot" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Timeslot">
+        <PropertyRef Name="TimeslotID" />
+      </Principal>
+      <Dependent Role="Lesson">
+        <PropertyRef Name="TimeslotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MathsDepartmentDBModelStoreContainer">
+    <EntitySet Name="Day" EntityType="Self.Day" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Lesson" EntityType="Self.Lesson" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Timeslot" EntityType="Self.Timeslot" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_Lesson_dbo_Day_DayID" Association="Self.FK_dbo_Lesson_dbo_Day_DayID">
+      <End Role="Day" EntitySet="Day" />
+      <End Role="Lesson" EntitySet="Lesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Lesson_dbo_Teacher_TeacherID" Association="Self.FK_dbo_Lesson_dbo_Teacher_TeacherID">
+      <End Role="Teacher" EntitySet="Teacher" />
+      <End Role="Lesson" EntitySet="Lesson" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Lesson_dbo_Timeslot_TimeslotID" Association="Self.FK_dbo_Lesson_dbo_Timeslot_TimeslotID">
+      <End Role="Timeslot" EntitySet="Timeslot" />
+      <End Role="Lesson" EntitySet="Lesson" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

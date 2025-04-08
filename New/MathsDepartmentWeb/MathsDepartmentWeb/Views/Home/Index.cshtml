@@ -1,0 +1,115 @@
+﻿<div class="row">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10" ; style="background-color: white; border-radius: 35px; padding: 20px">
+        @using MathsDepartmentWeb.Models
+        @{
+            /**/
+
+            ViewBag.Title = "Home Page";
+
+        }
+        <h1>@Model.FullName</h1>
+
+        @{
+            if (ViewData["TeacherEmail"] != null)
+            {
+                <table>
+                    <tr>
+                        <th>Email</th>
+                    </tr>
+                    @foreach (Teacher t in (IEnumerable<Teacher>)ViewData["TeacherEmail"])
+                    {
+                        <tr>
+                            <td>@t.Email</td>
+                        </tr>
+                    }
+                </table>
+            }
+        }
+        @{
+            if (ViewData["TeacherTelNum"] != null)
+            {
+                <table>
+                    <tr>
+                        <th>Number</th>
+                    </tr>
+                    @foreach (Teacher t in (IEnumerable<Teacher>)ViewData["TeacherTelNum"])
+                    {
+                        <tr>
+                            <td>@t.TelNum</td>
+                        </tr>
+                    }
+                </table>
+            }
+        }
+        @{
+            if (ViewData["TeacherRoom"] != null)
+            {
+                <table>
+                    <tr>
+                        <th>Room</th>
+                    </tr>
+                    @foreach (Teacher t in (IEnumerable<Teacher>)ViewData["TeacherRoom"])
+                    {
+                        <tr>
+                            <td>@t.Room</td>
+                        </tr>
+                    }
+                </table>
+            }
+        }
+
+        <h2>Schedule</h2>
+
+        @{
+            if (ViewData["TeacherSchedule"] != null)
+            {
+
+                <table class="table">
+                    <tr>
+                        <th>Day</th>
+                        <th>Time</th>
+                    </tr>
+                    @foreach (Lesson l in (IEnumerable<Lesson>)ViewData["TeacherSchedule"])
+                    {
+                        <tr>
+                            <td>@l.DayName</td>
+                            <td>@l.TimeslotName</td>
+                        </tr>
+                    }
+                </table>
+
+            }
+            else
+            {
+                <p>There are currently no time slots available.</p>
+            }
+
+            <h2>Other Teachers</h2>
+            if (ViewData["AllTeachers"] != null)
+            {
+
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+
+                    </tr>
+                    @foreach (Teacher t in (IEnumerable<Teacher>)ViewData["AllTeachers"])
+                    {
+                        <tr>
+                            <td><a href="/Home/Index/@t.TeacherID">@t.FullName</a></td>
+                        </tr>
+                    }
+                </table>
+
+            }
+            else
+            {
+                <p>There are currently no time slots available.</p>
+            }
+
+        }
+        <div class="col-md-1"></div>
+    </div>
+</div>

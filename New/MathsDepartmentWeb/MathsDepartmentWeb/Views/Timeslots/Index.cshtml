@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MathsDepartmentWeb.Models.Timeslot>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10" ; style="background-color: white; border-radius: 35px; padding: 20px">
+        <h2>Timeslots</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Timeslots)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Timeslots)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.TimeslotID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.TimeslotID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.TimeslotID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div class="col-md-1"></div>
+    </div>
+</div>

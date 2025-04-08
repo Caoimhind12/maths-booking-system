@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MathsDepartmentWeb.Models.Lesson>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10" ; style="background-color: white; border-radius: 35px; padding: 20px">
+        <h2>Lessons</h2>
+
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Available)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SpotsTaken)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Subject)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Day.Days)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Teacher.Forename)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Timeslot.Timeslots)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Available)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SpotsTaken)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Subject)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Day.Days)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Teacher.Forename)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Timeslot.Timeslots)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.LessonID }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.LessonID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.LessonID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <div class="col-md-1"></div>
+    </div>
+</div>

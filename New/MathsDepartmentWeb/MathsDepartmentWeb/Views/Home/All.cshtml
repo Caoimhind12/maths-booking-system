@@ -1,0 +1,35 @@
+﻿
+<div class="row">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10" ; style="background-color: white; border-radius: 35px; padding: 20px">
+        @using MathsDepartmentWeb.Models
+
+        @{
+            ViewBag.Title = "Index";
+        }
+
+        <h1>All Teachers</h1>
+
+        @{
+            if (ViewData["Teachers"] != null)
+            {
+                <table class="table">
+                    <tr>
+                        <th>Teacher Name</th>
+                    </tr>
+                    @{
+                        foreach (Teacher t in (IEnumerable<Teacher>)ViewData["Teachers"])
+                        {
+                            <tr>
+                                <td><a href="/Home/Index/@t.TeacherID">@t.FullName</a></td>
+                            </tr>
+                        }
+                    }
+                </table>
+            }
+
+        }
+        <div class="col-md-1"></div>
+    </div>
+</div>

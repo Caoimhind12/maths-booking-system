@@ -1,0 +1,72 @@
+﻿@model MathsDepartmentWeb.Models.Lesson
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="row">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10" ; style="background-color: white; border-radius: 35px; padding: 20px">
+        <h2>Details</h2>
+
+        <div>
+            <h4>Lesson</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Available)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Available)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SpotsTaken)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SpotsTaken)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Subject)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Subject)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Day.Days)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Day.Days)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Teacher.Forename)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Teacher.Forename)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Timeslot.Timeslots)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Timeslot.Timeslots)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.LessonID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        <div class="col-md-1"></div>
+    </div>
+</div>

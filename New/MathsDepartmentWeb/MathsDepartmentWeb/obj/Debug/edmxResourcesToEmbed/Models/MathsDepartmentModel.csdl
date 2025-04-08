@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MathsDepartmentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Day">
+    <Key>
+      <PropertyRef Name="DayID" />
+    </Key>
+    <Property Name="DayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Days" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Lessons" Relationship="Self.FK_dbo_Lesson_dbo_Day_DayID" FromRole="Day" ToRole="Lesson" />
+  </EntityType>
+  <EntityType Name="Lesson">
+    <Key>
+      <PropertyRef Name="LessonID" />
+    </Key>
+    <Property Name="LessonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeacherID" Type="Int32" Nullable="false" />
+    <Property Name="TimeslotID" Type="Int32" Nullable="false" />
+    <Property Name="DayID" Type="Int32" Nullable="false" />
+    <Property Name="Available" Type="Boolean" />
+    <Property Name="SpotsTaken" Type="Int32" />
+    <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Day" Relationship="Self.FK_dbo_Lesson_dbo_Day_DayID" FromRole="Lesson" ToRole="Day" />
+    <NavigationProperty Name="Teacher" Relationship="Self.FK_dbo_Lesson_dbo_Teacher_TeacherID" FromRole="Lesson" ToRole="Teacher" />
+    <NavigationProperty Name="Timeslot" Relationship="Self.FK_dbo_Lesson_dbo_Timeslot_TimeslotID" FromRole="Lesson" ToRole="Timeslot" />
+  </EntityType>
+  <EntityType Name="Teacher">
+    <Key>
+      <PropertyRef Name="TeacherID" />
+    </Key>
+    <Property Name="TeacherID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Forename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TelNum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Room" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Lessons" Relationship="Self.FK_dbo_Lesson_dbo_Teacher_TeacherID" FromRole="Teacher" ToRole="Lesson" />
+  </EntityType>
+  <EntityType Name="Timeslot">
+    <Key>
+      <PropertyRef Name="TimeslotID" />
+    </Key>
+    <Property Name="TimeslotID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Timeslots" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Lessons" Relationship="Self.FK_dbo_Lesson_dbo_Timeslot_TimeslotID" FromRole="Timeslot" ToRole="Lesson" />
+  </EntityType>
+  <Association Name="FK_dbo_Lesson_dbo_Day_DayID">
+    <End Role="Day" Type="Self.Day" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Day">
+        <PropertyRef Name="DayID" />
+      </Principal>
+      <Dependent Role="Lesson">
+        <PropertyRef Name="DayID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Lesson_dbo_Teacher_TeacherID">
+    <End Role="Teacher" Type="Self.Teacher" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teacher">
+        <PropertyRef Name="TeacherID" />
+      </Principal>
+      <Dependent Role="Lesson">
+        <PropertyRef Name="TeacherID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Lesson_dbo_Timeslot_TimeslotID">
+    <End Role="Timeslot" Type="Self.Timeslot" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Lesson" Type="Self.Lesson" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Timeslot">
+        <PropertyRef Name="TimeslotID" />
+      </Principal>
+      <Dependent Role="Lesson">
+        <PropertyRef Name="TimeslotID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MathsDepartmentDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Days" EntityType="Self.Day" />
+    <EntitySet Name="Lessons" EntityType="Self.Lesson" />
+    <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+    <EntitySet Name="Timeslots" EntityType="Self.Timeslot" />
+    <AssociationSet Name="FK_dbo_Lesson_dbo_Day_DayID" Association="Self.FK_dbo_Lesson_dbo_Day_DayID">
+      <End Role="Day" EntitySet="Days" />
+      <End Role="Lesson" EntitySet="Lessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Lesson_dbo_Teacher_TeacherID" Association="Self.FK_dbo_Lesson_dbo_Teacher_TeacherID">
+      <End Role="Teacher" EntitySet="Teachers" />
+      <End Role="Lesson" EntitySet="Lessons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Lesson_dbo_Timeslot_TimeslotID" Association="Self.FK_dbo_Lesson_dbo_Timeslot_TimeslotID">
+      <End Role="Timeslot" EntitySet="Timeslots" />
+      <End Role="Lesson" EntitySet="Lessons" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

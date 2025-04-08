@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+
+<style>
+
+    body {
+        background-image: url('../../Images/background.png');
+        background-size: 100% 120%;
+        background-attachment: fixed;
+        background-repeat: no-repeat
+    }
+</style>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Maths Project</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="jumbotron text-center" ; style="background-color: #0098e1; align-content: center">
+        <img src="~/Images/nwrclogo.jpg" alt="NWRC" width="210" height="81">
+    </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Teachers", "All", "Home")</li>
+                    <li>@Html.ActionLink("Schedule", "Contact", "Home")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Maths Project</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

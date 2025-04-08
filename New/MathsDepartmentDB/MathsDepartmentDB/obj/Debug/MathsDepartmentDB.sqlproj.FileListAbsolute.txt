@@ -1,0 +1,22 @@
+D:\New\MathsDepartmentDB\MathsDepartmentDB\bin\Debug\MathsDepartmentDB.dacpac
+D:\New\MathsDepartmentDB\MathsDepartmentDB\bin\Debug\MathsDepartmentDB.dll
+D:\New\MathsDepartmentDB\MathsDepartmentDB\bin\Debug\MathsDepartmentDB.pdb
+D:\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\MathsDepartmentDB.sqlprojAssemblyReference.cache
+D:\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\MathsDepartmentDB.dll
+D:\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\MathsDepartmentDB.pdb
+E:\techwork\Math Dept\Math Dept2\New\MathsDepartmentDB\MathsDepartmentDB\bin\Debug\MathsDepartmentDB.dacpac
+E:\techwork\Math Dept\Math Dept2\New\MathsDepartmentDB\MathsDepartmentDB\bin\Debug\MathsDepartmentDB.dll
+E:\techwork\Math Dept\Math Dept2\New\MathsDepartmentDB\MathsDepartmentDB\bin\Debug\MathsDepartmentDB.pdb
+E:\techwork\Math Dept\Math Dept2\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\MathsDepartmentDB.sqlprojAssemblyReference.cache
+E:\techwork\Math Dept\Math Dept2\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\MathsDepartmentDB.dll
+E:\techwork\Math Dept\Math Dept2\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\MathsDepartmentDB.pdb
+C:\Users\caoim\Documents\TechWorkPlace\New\MathsDepartmentDB\MathsDepartmentDB\bin\Debug\MathsDepartmentDB.dacpac
+C:\Users\caoim\Documents\TechWorkPlace\New\MathsDepartmentDB\MathsDepartmentDB\bin\Debug\MathsDepartmentDB.dll
+C:\Users\caoim\Documents\TechWorkPlace\New\MathsDepartmentDB\MathsDepartmentDB\bin\Debug\MathsDepartmentDB.pdb
+C:\Users\caoim\Documents\TechWorkPlace\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\MathsDepartmentDB.sqlproj.AssemblyReference.cache
+C:\Users\caoim\Documents\TechWorkPlace\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\Model.xml
+C:\Users\caoim\Documents\TechWorkPlace\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\refactor.xml
+C:\Users\caoim\Documents\TechWorkPlace\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\postdeploy.sql
+C:\Users\caoim\Documents\TechWorkPlace\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\predeploy.sql
+C:\Users\caoim\Documents\TechWorkPlace\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\MathsDepartmentDB.dll
+C:\Users\caoim\Documents\TechWorkPlace\New\MathsDepartmentDB\MathsDepartmentDB\obj\Debug\MathsDepartmentDB.pdb

@@ -1,0 +1,64 @@
+﻿@model MathsDepartmentWeb.Models.Teacher
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="row">
+    <div class="col-md-1"></div>
+
+    <div class="col-md-10" ; style="background-color: white; border-radius: 35px; padding: 20px">
+        <h2>Details</h2>
+
+        <div>
+            <h4>Teacher</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Forename)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Forename)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Surname)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Surname)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TelNum)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TelNum)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Room)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Room)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.TeacherID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
+        <div class="col-md-1"></div>
+    </div>
+</div>
